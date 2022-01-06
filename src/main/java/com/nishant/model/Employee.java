@@ -14,6 +14,12 @@ public class Employee {
 	private String name;
 	private String tech;
 	
+	public Employee(int id, String name, String tech) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.tech = tech;
+	}
 	public Employee() {
 		super();
 	}
