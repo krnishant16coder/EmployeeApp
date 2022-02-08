@@ -31,7 +31,7 @@ class SpringCrudApplicationTests {
 	@Test
 	public void testFindAllMethod() {
 		
-		when(repository.findAll()).thenReturn(Stream.of(new Employee(1,"A", "AA"), new Employee(2,"B","BB")).collect(Collectors.toList()));
+		when(repository.findAll()).thenReturn(Stream.of(new Employee("A", "AA"), new Employee("B","BB")).collect(Collectors.toList()));
 		assertEquals(2, service.findAll().size());
 	}
 

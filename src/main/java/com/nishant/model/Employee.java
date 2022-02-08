@@ -1,9 +1,8 @@
 package com.nishant.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Employee {
@@ -13,10 +12,20 @@ public class Employee {
 	private int id;
 	private String name;
 	private String tech;
+
+	public List<Laptop> getLaptops() {
+		return laptops;
+	}
+	public void setLaptops(List<Laptop> laptops) {
+		this.laptops = laptops;
+	}
+
+	@OneToMany(targetEntity = Laptop.class, cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_fk", referencedColumnName = "id")
+	private List<Laptop> laptops;
 	
-	public Employee(int id, String name, String tech) {
+	public Employee(String name, String tech) {
 		super();
-		this.id = id;
 		this.name = name;
 		this.tech = tech;
 	}
@@ -41,5 +50,4 @@ public class Employee {
 	public void setTech(String tech) {
 		this.tech = tech;
 	}
-	
 }

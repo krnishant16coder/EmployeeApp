@@ -19,10 +19,16 @@ public class EmployeeDataLoader {
 	@PostConstruct
 	public void loadData() {
 
-		List<Employee> employeeList = Arrays.asList(new Employee(1, "A", "aa"), new Employee(2, "B", "bb"));
+		List<Employee> employeeList = Arrays.asList(new Employee("Nishant", "SpringBoot"), new Employee("Prashant", "Java"), new Employee("NewEmployee","React"));
 		for (Employee emp : employeeList) {
 			repository.save(emp);
 		}
+		Employee emp1 = new Employee("Emp1", "Python");
+		Laptop laptop1 = new Laptop("HP","2GB");
+		Laptop laptop2 = new Laptop("DELL","2GB");
+		emp1.setLaptops(Arrays.asList(laptop1,laptop2));
+		repository.save(emp1);
+
 	}
 
 }

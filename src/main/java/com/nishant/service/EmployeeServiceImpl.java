@@ -2,6 +2,7 @@ package com.nishant.service;
 
 import java.util.List;
 
+import com.nishant.repository.LaptopRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,8 @@ public class EmployeeServiceImpl implements EmployeeService{
 	
 	@Autowired
 	EmployeeRepository employeeRepository;
+	@Autowired
+	LaptopRepository laptopRepository;
 
 	@Override
 	public String save(Employee employee) {

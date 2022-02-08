@@ -2,6 +2,8 @@ package com.nishant.controller;
 
 import java.util.List;
 
+import com.nishant.repository.EmployeeRepository;
+import com.nishant.repository.LaptopRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,16 +19,19 @@ import com.nishant.service.EmployeeService;
 public class EmployeeController {
 
 	@Autowired
-	EmployeeService employeeService;
+	EmployeeRepository employeeRepository;
+	@Autowired
+	LaptopRepository laptopRepository;
 	
 	@PostMapping("/save")
-	public String saveEmp(@RequestBody Employee employee) {
+	public Employee saveEmp(@RequestBody Employee employee) {
 		
-		return employeeService.save(employee);
+		return employeeRepository.save(employee);
 	}
 	
 	@GetMapping("/getAll")
 	public List<Employee> getEmp(){
-		return employeeService.findAll();
+
+		return employeeRepository.findAll();
 	}
 }
